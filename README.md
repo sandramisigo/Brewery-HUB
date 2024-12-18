@@ -1,7 +1,7 @@
  # The Brewery Hub
  Welcome to The Brewery Hub! An online Single Page Application that allows users to search a brewery by name, view individual brewery details, filter different brewerys by type as well as add a brewery to a Favorite List. The application is designed using JavaScript, HTML and CSS and utilizes The Open Brewery DB API.
 
- Here is a live link to The Brewery Hub application:
+ Here is a live link to The Brewery Hub application: <https://sandramisigo.github.io/Brewery-HUB/>
 
 
  ## Project Learning Goals
@@ -64,7 +64,7 @@
 
       1. **Clone the Repository:**
 
-       * git clone [https://github.com/sandramisigo/Flatdango](https://github.com/sandramisigo/Flatdango)
+       * git clone [https://github.com/sandramisigo/Brewery-HUB](https://github.com/sandramisigo/Brewery-HUB)
        * cd Flatdango
 
       2. **Navigate to the project directory**
