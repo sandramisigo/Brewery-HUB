@@ -65,7 +65,6 @@
       1. **Clone the Repository:**
 
        * git clone [https://github.com/sandramisigo/Brewery-HUB](https://github.com/sandramisigo/Brewery-HUB)
-       * cd Flatdango
 
       2. **Navigate to the project directory**
 
