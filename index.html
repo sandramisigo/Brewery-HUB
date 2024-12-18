@@ -1,1 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE BREWERY HUB</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>THE BREWERY HUB</h1>
 
+
+    <div class="quote">"In Wine there is wisdom, in Craft there is passion, in every glass of <strong>Beer</strong> there is <strong>freedom</strong>."  -Billy Carter</div>
+
+    </header>
+
+    <main>
+        <!--brewery search bar-->
+        <div class="search">
+            <label for="brewery-search"> Search by Name:</label>
+            <input type="text" id="brewery-search" placeholder="Add brewery Name">     
+        </div>
+
+<!--brewery type filter-->
+        <div class="filter">
+        <label for="brewery-type">Filter by Type:</label>  
+        <select id="brewery-type"> 
+            <option value="All">All</option>
+            <option value="micro">micro</option>
+            <option value="brewpub">brewpub</option>
+            <option value="proprietor">proprietor</option>
+            <option value="nano">nano</option>
+            <option value="contract">contract</option>
+        </select>
+        <button id="load-brewerys"> Load brewery</button>
+     </div>
+
+<!--displaying brewery list-->
+     <section id="brewerys" class="hidden">
+        <h2>Classic Brewery List</h2>
+        <ul id="brewery-list"></ul>
+     </section>
+
+<!--brewery details section-->
+     <section id="brewery-details" class="hidden">
+        <h2>Brewery Details</h2> 
+        <div id="brewery-information"></div>
+     </section>
+
+<!--Favorites section-->
+      <section id="favorites">
+        <h2>Your Favorite Brewerys </h2>
+        <ul id="favorites-list-display"></ul>
+        <button id="view-favorites-button" class="hidden">View Favorites</button>
+      </section>
+    
+    </main>
+    
+    
+    <script src="./index.js"></script>
+</body>
+</html>

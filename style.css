@@ -1,1 +1,196 @@
+/*Applying general styling to the website*/
+
+
+body{ 
+    font-family: Arial, sans-serif;
+    background-color:white;
+    margin: 0;
+    padding: 0;
+    background-image:url('breweryimage/my brewery.jpg');
+    background-repeat: no repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header{
+    padding: 40px;
+    color:white;
+    background-color:#333;
+    text-align: center;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.quote{
+    font-style: italic;
+    font-size: 20px;
+    padding: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: white;
+
+}
+
+button {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: rgb(18, 18, 235);
+    transition: all 0.3s ease;
+    color: rgb(235, 228, 229);
+    margin-left: 10px;
+    border: none;
+}
+
+button:hover {
+    background-color: rgb(74, 7, 7);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.search {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: #f50303;
+    font-size: 30px;
+    font-weight: bold;
+    
+}
+.search label {  /* searchbar*/
+    font-size: 40px;
+    width: 200px;
+    margin-left: 10px;
+    font-weight: bold;
+    padding: 8px;
+ }
+
+ .search input {
+    padding: 8px;
+    margin-left: 10px;
+    width: 500px;
+    font-size: 20px;
+ }
+
+.main {
+    margin-bottom: 30px;
+}
+
+h1{
+    margin: 0;
+}
+
+.filter{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f50303;
+}
+
+ .filter label {  /* filter dropdown*/
+    font-weight: bold;
+ }
+
+ .filter select{
+    padding: 8px;
+    font-weight: bold;
+    margin-left: 10px;
+ }
+
+.hidden {
+    display: none;
+}
+
+#brewerys h2{
+    font-size: 40px;
+    margin-left: 20px;
+    color: #ff0000;
+}
+
+
+.brewery-list{
+    list-style-type: none;
+    padding: 0;
+    font-size: 30px;
+    margin-left: 20px;
+}
+#brewery-list li {
+    padding: 10px;
+    width: 100%;
+    font-size: 25px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    /*background-color:#fff;*/
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+   /* box-shadow: 0 6px 16px rgba(201, 17, 48, 0.6);*/
+   /* transform:translateY(-5px);*/
+}
+
+#brewery-list li:hover{
+    background-color: rgb(220, 59, 18);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+#favorites {
+    margin-top: 20px;
+    padding: 15px;
+}
+#favorites h2{
+    margin-top: 0;
+    font-size: 40px;
+    color: #ff0000;
+}
+
+#favorites-list-display li {
+padding: 10px;
+margin: 5px 0;
+font-weight: bold;
+font-size: 25px;
+display: flex;
+justify-content: space-between;
+box-shadow: 0 6px 16px rgba(201, 17, 48, 0.6);
+background-color: rgb(246, 251, 252);
+transition: all 0.3s ease;
+}
+
+#favorites-list-display :hover {
+    background-color: rgb(9, 245, 5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+#favorites-list-display button:hover {
+    background-color: rgb(74, 7, 7);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+
+#brewery-details{
+    background-color: #6d5f63;
+    font-weight: bold;
+    font-size: 25px;
+    box-shadow: 0 4px 12px rgba(201, 17, 48, 0.6);
+    margin-top: 20px; 
+    text-align: center;
+    
+}   
+#brewery-details h2{
+    font-size:35px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color: #3b0912;
+    font-family: Arial, sans-serif;
+}
 
