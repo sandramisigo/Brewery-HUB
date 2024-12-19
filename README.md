@@ -72,7 +72,7 @@
 
        * Open the `index.html` in your browser to view and interact with the app.
 
-  ##  Future plans##
+  ##  Future plans
      * Turn the project to a mobile app.
      * Expand data sources.
 
