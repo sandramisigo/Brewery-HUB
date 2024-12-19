@@ -72,6 +72,10 @@
 
        * Open the `index.html` in your browser to view and interact with the app.
 
+  ##  Future plans##
+     * Turn the project to a mobile app.
+     * Expand data sources.
+
   ## **Conclusion**
 
     This project provides a simple and yet effective way to interact with your best brewery. You search a brewery and easily add it to a 'Favorites List' in order to reach out in future. The project is ideal for practicing basic front-end development skills, including DOM manipulation, event handling among others.
