@@ -1,6 +1,4 @@
-/*Applying general styling to the website*/
-
-
+/*This is the basic styling applied to the website*/
 body{ 
     font-family: Arial, sans-serif;
     background-color:white;
@@ -19,6 +17,10 @@ header{
     text-align: center;
     text-decoration: none;
     font-size: 30px;
+}
+
+header img{
+    float: right;
 }
 
 .quote{
@@ -126,13 +128,10 @@ h1{
     margin-bottom: 10px;
     font-weight: bold;
     border-radius: 5px;
-    /*background-color:#fff;*/
     align-items: center;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
-   /* box-shadow: 0 6px 16px rgba(201, 17, 48, 0.6);*/
-   /* transform:translateY(-5px);*/
 }
 
 #brewery-list li:hover{
@@ -176,7 +175,7 @@ transition: all 0.3s ease;
 
 
 #brewery-details{
-    background-color: #6d5f63;
+    background-color: #ae3656;
     font-weight: bold;
     font-size: 25px;
     box-shadow: 0 4px 12px rgba(201, 17, 48, 0.6);

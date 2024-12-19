@@ -1,7 +1,7 @@
+//for the dom to be fully loaded before running the script
 document.addEventListener('DOMContentLoaded', () => {
 
-//Referencing
-
+//Referencing the elements
 const loadBrewerysButton = document.getElementById('load-brewerys');
 const breweryTypeSelector = document.getElementById('brewery-type'); 
 const brewerySearchInput = document.getElementById('brewery-search');
@@ -9,7 +9,6 @@ const breweryListSection = document.getElementById('brewerys');
 const breweryList = document.getElementById('brewery-list');
 const breweryDetailSection = document.getElementById('brewery-details');
 const breweryInformation = document.getElementById('brewery-information');
-const favoritesListSection = document.getElementById('favorites-list');
 const favoritesListDisplay = document.getElementById('favorites-list-display');
 const viewFavoritesButton= document.getElementById('view-favorites-button');
 
@@ -21,15 +20,15 @@ breweryTypeSelector.addEventListener('change',filterByType);
 loadBrewerysButton.addEventListener('click',loadBrewerys);
 viewFavoritesButton.addEventListener('click', displayFavorites);
 
-//Fetch brewerys from OPEN BREWERY DB API
+//Fetching brewerys from the OPEN BREWERY DB API
 function loadBrewerys() {
     fetch(`https://api.openbrewerydb.org/breweries`)
     .then(response => response.json())
     .then(data =>displayBrewerys(data))
-    .catch(error => console.error('Encountered error while fetching brewerys:',error));
+    .catch(error => console.error('error encountered:',error));
 }
 
-// displaying the brewerys
+// displaying the brewerys on a list
 function displayBrewerys(brewerys) {
     breweryList.innerHTML='';
     brewerys.forEach(brewery => {
@@ -49,15 +48,62 @@ li.addEventListener('click',() => loadBreweryDetails(brewery.id));
  breweryListSection.classList.remove('hidden');
 }
 
-//function to add brewery to favorites
+//function for fetching and displaying brewery details
+function loadBreweryDetails(breweryId) {
+    fetch(`https://api.openbrewerydb.org/breweries/${breweryId}`)
+    .then(response => response.json())
+    .then(brewery => {
+      breweryInformation.innerHTML = `
+        <h3>${brewery.brewery_type}</h3>
+        <p>Type:${brewery.brewery_type}</p>
+        <p>Adress:${brewery.address_1}, ${brewery.city}, ${brewery.state} , ${brewery.country}</p>
+        <p>Phone:${brewery.phone}</p>
+        <p>Website: <a href="${brewery.website_url}" target="blank">${brewery.website_url}</a></p>
+        `;
+      breweryDetailSection.classList.remove('hidden');
+    })
+    .catch(error => console.error(`error encountered:`,error));
+}
+
+//function to filter brewery by type
+function filterByType(){
+    const breweryType = breweryTypeSelector.value;
+     let endpoint = `https://api.openbrewerydb.org/breweries`;
+
+    if(breweryType && breweryType !== 'All'){
+        endpoint +=`?by_type=${breweryType}`;
+    }
+
+    fetch(endpoint)
+    .then(response => response.json())
+    .then(data => displayBrewerys(data))
+    .catch(error => console.error(`error encountered:`, error));
+}
+
+//function to search brewerys by name
+function searchbrewerys() {
+    const searchWord= brewerySearchInput.value;
+
+    fetch(`https://api.openbrewerydb.org/breweries`)
+    .then(response=> response.json())
+    .then(brewerys => {
+        const filteredbrewerys = brewerys.filter(brewery => 
+            brewery.name.includes(searchWord)
+        );
+        displayBrewerys(filteredbrewerys);
+    })
+    .catch(error => console.error(`error encountered:`, error));
+}
+
+//function to add brewery to Favorites
 function addToFavorites(brewery){
     if(!favorites.includes(brewery))
         favorites.push(brewery);
-        updateFavorites();
+        updateFavoritesList();
 }
 
-//Function to update favorites display
-function updateFavorites() {
+//Function display a Favorites List
+function updateFavoritesList() {
     favoritesListDisplay.innerHTML ='';
     
     favorites.forEach((brewery,index) => {
@@ -87,59 +133,13 @@ function removeFromFavorites(breweryToRemove) {
     if (index> -1){
         favorites.splice(index,1);   
     }
-    updateFavorites();
+    updateFavoritesList();
 } 
-//function to display favorites
+//function to display a prompt message after adding brewery to Favorites
 function displayFavorites (){
-    alert('Thank you for Favoriting these Brewerys! You can go ahead and Plan your Visit Now!');
+    prompt('Thank you for Favoriting these Brewerys! You can go ahead and Plan your Visit Now!');
     favoritesListDisplay.length = 0;
-    updateFavorites();
+    updateFavoritesList();
 }
 
-//fetching and displaying brewery details
-function loadBreweryDetails(breweryId) {
-    fetch(`https://api.openbrewerydb.org/breweries/${breweryId}`)
-    .then(response => response.json())
-    .then(brewery => {
-      breweryInformation.innerHTML = `
-        <h3>${brewery.brewery_type}</h3>
-        <p>Type:${brewery.brewery_type}</p>
-        <p>Adress:${brewery.address_1}, ${brewery.city}, ${brewery.state} , ${brewery.country}</p>
-        <p>Phone:${brewery.phone}</p>
-        <p>Website: <a href="${brewery.website_url}" target="blank">${brewery.website_url}</a></p>
-        `;
-      breweryDetailSection.classList.remove('hidden');
-    })
-    .catch(error => console.error(`Encountered error fetching brewery details:`,error));
-}
-
-//function to filter brewery by type
-function filterByType(){
-    const breweryType = breweryTypeSelector.value;
-     let endpoint = `https://api.openbrewerydb.org/breweries`;
-
-    if(breweryType && breweryType !== 'All'){
-        endpoint +=`?by_type=${breweryType}`;
-    }
-
-    fetch(endpoint)
-    .then(response => response.json())
-    .then(data => displayBrewerys(data))
-    .catch(error => console.error(`Encountered error fetching filtered brewerys:`, error));
-}
-
-//function to search brewerys by name
-function searchbrewerys() {
-    const searchWord= brewerySearchInput.value;
-
-    fetch(`https://api.openbrewerydb.org/breweries`)
-    .then(response=> response.json())
-    .then(brewerys => {
-        const filteredbrewerys = brewerys.filter(brewery => 
-            brewery.name.includes(searchWord)
-        );
-        displayBrewerys(filteredbrewerys);
-    })
-    .catch(error => console.error(`Encountered error searching:`, error));
-}
 });
