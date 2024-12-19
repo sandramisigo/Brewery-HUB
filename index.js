@@ -55,7 +55,7 @@ function loadBreweryDetails(breweryId) {
     .then(brewery => {
       breweryInformation.innerHTML = `
         <h3>${brewery.brewery_type}</h3>
-        <p>Type:${brewery.brewery_type}</p>
+        <p>Type:${brewery.brewery_type}</p>      
         <p>Adress:${brewery.address_1}, ${brewery.city}, ${brewery.state} , ${brewery.country}</p>
         <p>Phone:${brewery.phone}</p>
         <p>Website: <a href="${brewery.website_url}" target="blank">${brewery.website_url}</a></p>

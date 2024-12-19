@@ -72,6 +72,10 @@
 
        * Open the `index.html` in your browser to view and interact with the app.
 
+  ## Challenges
+      * Design challenge since creating an interface that allows a user to filter brewery by type was not so easy.
+      * Limited data since OPEN BREWERY DB API doesn't always have complete data for every brewery.
+
   ##  Future plans
      * Turn the project to a mobile app.
      * Expand data sources.
